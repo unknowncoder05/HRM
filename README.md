@@ -75,4 +75,3 @@ you please just include the Copyright and the [**LICENSE**](LICENSE).
 ## Contributors
 
 - [Pablo Trinidad](https://github.com/pablotrinidad)
-  | CS Student at UNAM's Faculty of Science | <pablotrinidad@ciencias.unam.mx>
