@@ -15,7 +15,6 @@ quickly got some attention:
 
 * [**Public TV interview**](https://www.youtube.com/watch?v=vW3dXpSjVRg)
 * Press articles: [El Financiero](https://www.elfinanciero.com.mx/universidades/alumnos-del-tec-arman-app-de-rides-ante-el-doble-hoy-no-circula.html), [Univision](www.univision.com/noticias/citylab-transporte/restriccion-vehicular-en-mexico-impulsa-a-una-app-para-compartir-viajes), [El Universal](http://www.eluniversal.com.mx/articulo/techbit/2016/04/11/ayuda-reducir-uso-de-autos-con-comparteride), [UNO TV](https://www.unotv.com/noticias/portal/negocios/detalle/ante-problemas-contingencia-ambiental-comparte-ride-031332/)
-* After-math website: [inventivehack.com/comparte-ride](https://inventivehack.com/comparte-ride)
 
 We believe Comparte Ride's popularity grew so fast because of the fact
 that groups where private and that the only way to join a group
