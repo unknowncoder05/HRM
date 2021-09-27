@@ -3,7 +3,7 @@
 import environ
 
 ROOT_DIR = environ.Path(__file__) - 3
-APPS_DIR = ROOT_DIR.path('cride')
+APPS_DIR = ROOT_DIR.path('hrm_api')
 
 env = environ.Env()
 
@@ -45,13 +45,12 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    'rest_framework.authtoken',
-    'django_filters'
+    'django_filters',
+    'rest_framework_simplejwt'
 ]
 LOCAL_APPS = [
-    'cride.users.apps.UsersAppConfig',
-    'cride.circles.apps.CirclesAppConfig',
-    'cride.rides.apps.RidesAppConfig',
+    'hrm_api.users.apps.UsersAppConfig',
+    #'hrm_api.community.apps.CommunityAppConfig',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -148,7 +147,8 @@ ADMINS = [
 MANAGERS = ADMINS
 
 # Celery
-INSTALLED_APPS += ['cride.taskapp.celery.CeleryAppConfig']
+"""
+INSTALLED_APPS += ['hrm_api.taskapp.celery.CeleryAppConfig']
 if USE_TZ:
     CELERY_TIMEZONE = TIME_ZONE
 CELERY_BROKER_URL = env('CELERY_BROKER_URL')
@@ -165,8 +165,9 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10,
 }
+"""

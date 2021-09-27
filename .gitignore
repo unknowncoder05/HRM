@@ -261,7 +261,7 @@ tags
 
 ### Project template
 
-cride/media/
+hrm_api/media/
 
 .pytest_cache/
 
