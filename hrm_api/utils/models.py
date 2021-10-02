@@ -25,6 +25,12 @@ class DefaultModel(models.Model):
         help_text='Date time on which the object was last modified.'
     )
 
+    deleted_at = models.DateTimeField(
+        'deleted at',
+        help_text='Date time on which the object was deleted.',
+        null=True
+    )
+
     class Meta:
         """Meta option."""
 

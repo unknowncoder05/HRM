@@ -9,9 +9,10 @@ env = environ.Env()
 
 # Base
 DEBUG = env.bool('DJANGO_DEBUG', False)
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Language and timezone
-TIME_ZONE = 'America/Mexico_City'
+TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = True

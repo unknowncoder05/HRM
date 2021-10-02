@@ -12,16 +12,16 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-BASE_API_PATH = "api/v1"
+BASE_API_PATH = 'api/v1'
 
 urlpatterns = [
     # Django Admin
     path(settings.ADMIN_URL, admin.site.urls),
 
     # Auth
-    path(BASE_API_PATH+'/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path(BASE_API_PATH+'/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path(BASE_API_PATH+'/auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path(BASE_API_PATH+'/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
-    path(BASE_API_PATH+"/user", include(('hrm_api.users.urls', 'users'), namespace='users')),
+    path(BASE_API_PATH+'/user/', include(('hrm_api.users.urls', 'users'), namespace='users')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

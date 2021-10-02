@@ -16,7 +16,7 @@ from hrm_api.users.permissions import IsAccountOwner
 from hrm_api.users.serializers.profiles import ProfileModelSerializer
 from hrm_api.users.serializers import (
     UserModelSerializer,
-    UserSignupModelSerializer,
+    UserSignUpSerializer,
 
 )
 
@@ -36,6 +36,10 @@ class UserViewSet(mixins.RetrieveModelMixin,
     serializer_class = UserModelSerializer
     lookup_field = 'username'
 
-    @action(detail=False, methods=['post'])
+    @action(detail=False, methods=['post'], url_path='sign-up')
     def signup(self, request):
-        pass
+        serializer = UserSignUpSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        data = UserModelSerializer(user).data
+        return Response(data, status=status.HTTP_201_CREATED)

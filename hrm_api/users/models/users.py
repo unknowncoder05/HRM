@@ -30,11 +30,17 @@ class User(DefaultModel, AbstractUser):
     )
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
     
-    birth_date = models.DateTimeField(blank=True, null=True)
+    birth_date = models.DateField(blank=True, null=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
+    is_verified = models.BooleanField(
+        'verified',
+        default=True,
+        help_text='Set to true when the user have verified its email address.'
+    )
+    
     def __str__(self):
         """Return username."""
         return self.username
