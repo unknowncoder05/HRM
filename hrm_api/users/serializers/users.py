@@ -12,26 +12,31 @@ from rest_framework.validators import UniqueValidator
 # Models
 from hrm_api.users.models import User, Profile
 
-# Serializers
+# Serializersc
 from hrm_api.users.serializers.profiles import ProfileModelSerializer
 
 
 
 class UserModelSerializer(serializers.ModelSerializer):
     """User model serializer."""
+    profile = ProfileModelSerializer(read_only=True)
 
     class Meta:
         """Meta class."""
         model = User
 
-        fields = ['first_name', 'last_name', 'email', 'username', 'birth_date',
-                  'phone_number']
+        fields = ['id', 'first_name', 'last_name', 'email', 'username', 'birth_date',
+                  'phone_number', 'profile']
+    
+    #def update(self, instance, validated_data):
+
 
 class UserSignUpSerializer(serializers.ModelSerializer):
     """User sign up serializer."""
     email = serializers.EmailField(
         validators=[UniqueValidator(queryset=User.objects.all())]
     )
+    
     username = serializers.CharField(
         min_length=4,
         max_length=20,
@@ -51,7 +56,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
         """Meta class."""
         model = User
 
-        fields = ['first_name', 'last_name', 'email', 'username', 'birth_date',
+        fields = ['id', 'first_name', 'last_name', 'email', 'username', 'birth_date',
                   'phone_number', 'password' ]
     
     def validate(self, data):

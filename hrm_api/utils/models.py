@@ -31,6 +31,9 @@ class DefaultModel(models.Model):
         null=True
     )
 
+    def non_deleted(self):
+        return self.objects.filter(deleted_at__isnull=False)
+
     class Meta:
         """Meta option."""
 

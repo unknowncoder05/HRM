@@ -14,6 +14,11 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
 ]
 
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+}
+
 # Cache
 CACHES = {
     'default': {
@@ -32,3 +37,4 @@ EMAIL_PORT = 1025
 
 # django-extensions
 INSTALLED_APPS += ['django_extensions']  # noqa F405
+

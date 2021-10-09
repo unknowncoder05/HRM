@@ -23,7 +23,14 @@ class Profile(DefaultModel):
         blank=True,
         null=True
     )
+
     biography = models.TextField(max_length=500, blank=True)
+
+    is_public = models.BooleanField(
+        'is public',
+        default=True,
+        help_text='Set to true if user wants profile to be visible.'
+    )
 
     # Stats
     """reputation = models.FloatField(
