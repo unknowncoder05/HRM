@@ -26,7 +26,7 @@ class Reaction(DefaultModel):
     """
     feed = models.ForeignKey(Feed, on_delete=models.CASCADE, related_name='reactions')
 
-    comments = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='reactions')
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='reactions')
 
     created_by = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reactions')
 

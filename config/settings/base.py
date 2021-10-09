@@ -53,6 +53,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'hrm_api.users.apps.UsersAppConfig',
     'hrm_api.community.apps.CommunityAppConfig',
+    'hrm_api.ideas.apps.IdeasAppConfig',
     #'hrm_api.community.apps.CommunityAppConfig',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

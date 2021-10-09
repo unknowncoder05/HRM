@@ -8,30 +8,30 @@ from rest_framework import mixins, status, viewsets
 from rest_framework.permissions import (
     IsAuthenticated
 )
-from hrm_api.users.permissions import IsOwner
+from hrm_api.ideas.permissions import IsProjectAdmin
 
 # Serializers
-from hrm_api.community.serializers import LinkModelSerializer, CreateLinkModelSerializer
+from hrm_api.ideas.serializers import ProjectModelSerializer, CreateProjectModelSerializer
 
 # Models
 
-from hrm_api.community.models import Link
+from hrm_api.ideas.models import Project
 
 
-class LinkViewSet(viewsets.ModelViewSet):
-    """Link view set.
+class ProjectViewSet(viewsets.ModelViewSet):
+    """Project view set.
 
     Handle sign up, login and account verification.
     """
 
-    queryset = Link.objects.filter(deleted_at__isnull=True)
+    queryset = Project.objects.filter(deleted_at__isnull=True)
 
-    serializer_class = LinkModelSerializer
+    serializer_class = ProjectModelSerializer
 
     def get_permissions(self):
         """Assign permissions based on action."""
         if self.action in ['update', 'partial_update']:
-            permissions = [IsAuthenticated, IsOwner]
+            permissions = [IsAuthenticated]
         else:
             permissions = [IsAuthenticated]
         return [p() for p in permissions]
@@ -39,10 +39,10 @@ class LinkViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = super().get_queryset()
         if self.action in [ 'list', 'update', 'partial_update' ]:
-            return queryset.filter(profile=self.request.user.profile)
+            return queryset
         return queryset
     
     def get_serializer_class(self):
         if self.action in ['create']:
-            return CreateLinkModelSerializer
+            return CreateProjectModelSerializer
         return super().get_serializer_class()
