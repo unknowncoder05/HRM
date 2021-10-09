@@ -1,1 +1,1 @@
-from .project import *
+from .social_media import *
