@@ -15,7 +15,7 @@ class Profile(DefaultModel):
     and statistics.
     """
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
 
     picture = models.ImageField(
         'profile picture',

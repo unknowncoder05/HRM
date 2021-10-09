@@ -1,4 +1,4 @@
-"""Users URLs."""
+"""Social Media URLs."""
 
 # Django
 from django.urls import include, path
@@ -7,10 +7,10 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
 # Views
-from .views import link as link_views
+from .views import social_media as link_views
 
 router = DefaultRouter()
-router.register(r'social-links', link_views.LinkViewSet, basename='link')
+router.register('link', link_views.LinkViewSet, basename='link')
 
 urlpatterns = [
     path('', include(router.urls))
