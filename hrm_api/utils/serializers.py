@@ -7,5 +7,5 @@ class BasicModelSerializer(serializers.ModelSerializer):
         """Meta class."""
 
         fields = (
-            'id', 'created_at', 'updated_at', 'deleted_at'
+            'id', 'created_at', 'updated_at'
         )

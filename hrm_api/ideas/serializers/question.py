@@ -26,7 +26,7 @@ class CreateQuestionModelSerializer(BasicModelSerializer):
 
         model = Question
         fields = BasicModelSerializer.Meta.fields + (
-            'id', 'description', 'original_questioner', 'original_ask_date'
+            'description', 'original_questioner', 'original_ask_date'
         )
     
     def create(self, data): # TODO: Create feed

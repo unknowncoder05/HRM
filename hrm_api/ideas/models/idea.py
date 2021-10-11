@@ -17,7 +17,7 @@ class Idea(DefaultModel):
     Ideas are the building block for questions to rise and for organizations and projects to focus on
     """
 
-    idea = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
 
     description = models.CharField(max_length=300)
 

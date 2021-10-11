@@ -1,2 +1,2 @@
-from .ideas import *
+from .idea import *
 from .question import *

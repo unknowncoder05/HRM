@@ -25,4 +25,6 @@ urlpatterns = [
     path(BASE_API_PATH+'/user/', include(('hrm_api.users.urls', 'users'), namespace='users')),
     path(BASE_API_PATH+'/social/', include(('hrm_api.community.urls', 'users'), namespace='social')),
 
+    path(BASE_API_PATH+'/conceptual/', include(('hrm_api.ideas.urls', 'users'), namespace='conceptual')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
