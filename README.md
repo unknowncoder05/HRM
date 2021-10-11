@@ -45,4 +45,4 @@ docker-compose run --rm django \
 ## Contributors
 
 - [Pablo Trinidad](https://github.com/pablotrinidad)
-- [yerson Lasso](https://github.com/unknowncoder05)
+- [Yerson Lasso](https://github.com/unknowncoder05)
