@@ -7,10 +7,10 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
 # Views
-from .views import project as project_views
+from .views import question as question_views
 
 router = DefaultRouter()
-router.register('project', project_views.ProjectViewSet, basename='project')
+router.register('questions', question_views.QuestionViewSet, basename='questions')
 
 urlpatterns = [
     path('', include(router.urls))

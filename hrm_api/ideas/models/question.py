@@ -19,15 +19,13 @@ class Question(DefaultModel):
 
     description = models.CharField(max_length=30)
 
-    feed = models.ForeignKey(Feed, on_delete=models.CASCADE, related_name='questions')
+    feed = models.ForeignKey(Feed, blank=True, null=True, on_delete=models.SET_NULL, related_name='questions')
 
-    created_by = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='questions')
+    created_by = models.ForeignKey(Profile, blank=True, null=True, on_delete=models.SET_NULL, related_name='questions')
 
-    original_questioner = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='original_questions')
+    original_questioner = models.ForeignKey(Profile, blank=True, null=True, on_delete=models.SET_NULL, related_name='original_questions')
 
     original_ask_date = models.DateTimeField()
-
-    
 
     def __str__(self):
         """Return Question's str representation."""
