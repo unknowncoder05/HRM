@@ -1,3 +1,2 @@
-from .idea import Idea
 from .question import Question
-
+from .idea import Idea

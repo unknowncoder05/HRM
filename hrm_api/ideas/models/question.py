@@ -17,7 +17,7 @@ class Question(DefaultModel):
     A question is a sentence designed to obtein information about certain ideas
     """
 
-    description = models.CharField(max_length=30)
+    description = models.CharField(unique=True, max_length=30)
 
     feed = models.ForeignKey(Feed, blank=True, null=True, on_delete=models.SET_NULL, related_name='questions')
 

@@ -14,7 +14,7 @@ class IdeaModelSerializer(BasicModelSerializer):
 
         model = Idea
         fields = BasicModelSerializer.Meta.fields + (
-            'name', 'description', 'feed', 'created_by', 'original_thinker', 'original_thinking_date'
+            'name', 'description', 'questions', 'feed', 'created_by', 'original_thinker', 'original_thinking_date'
         )
 
 
@@ -26,7 +26,7 @@ class CreateIdeaModelSerializer(BasicModelSerializer):
 
         model = Idea
         fields = BasicModelSerializer.Meta.fields + (
-            'name', 'description', 'original_thinker', 'original_thinking_date'
+            'name', 'description', 'questions', 'original_thinker', 'original_thinking_date'
         )
     
     def create(self, data): # TODO: Create feed
