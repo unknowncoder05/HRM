@@ -17,7 +17,7 @@ class Idea(DefaultModel):
 
     Ideas are the building block for questions to rise and for organizations and projects to focus on
     """
-    questions =  models.ManyToManyField(Question, related_name='ideas')
+    questions =  models.ManyToManyField(Question, related_name='child_ideas')
 
     name = models.CharField(unique=True, max_length=30)
 
