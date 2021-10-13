@@ -4,6 +4,35 @@
 from django.forms.models import model_to_dict
 
 
+# Utilities
+from enum import Enum
+import random
+
+
+class enumproperty(object):
+    "like property, but on an enum class"
+
+    def __init__(self, fget):
+        self.fget = fget
+
+    def __get__(self, instance, ownerclass=None):
+        if ownerclass is None:
+            ownerclass = instance.__class__
+        return self.fget(ownerclass)
+
+    def __set__(self, instance, value):
+        raise AttributeError("can't set pseudo-member %r" % self.name)
+
+    def __delete__(self, instance):
+        raise AttributeError("can't delete pseudo-member %r" % self.name)
+
+
+class CustomEnum(Enum):
+    @enumproperty
+    def RANDOM(cls):
+        return random.choice(list(cls.__members__.values()))
+
+
 class TestModelApiHelper:
     
     def __init__(self, client, api_base_route, model_factory, actions={}):

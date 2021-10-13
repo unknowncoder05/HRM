@@ -41,3 +41,10 @@ class DefaultModel(models.Model):
 
         get_latest_by = 'created_at'
         ordering = ['-created_at', '-updated_at']
+
+def save_save(model):
+    try:    
+        model.save()
+    except Exception as e:
+        print(print(model.__dict__), e)
+        raise Exception(e)

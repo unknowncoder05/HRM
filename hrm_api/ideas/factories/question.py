@@ -6,7 +6,7 @@ import factory
 from factory.django import DjangoModelFactory
 
 # Factories
-from hrm_api.ideas.factories import IdeasFactory
+from hrm_api.ideas.factories import IdeaFactory
 from hrm_api.community.factories import FeedFactory
 from hrm_api.users.factories import ProfileFactory
 

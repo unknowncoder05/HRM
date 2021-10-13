@@ -14,12 +14,12 @@ from hrm_api.users.factories import ProfileFactory
 class IdeaFactory(DjangoModelFactory):
     class Meta:
         model = Idea
-        django_get_or_create = ('name', 'description')
+        django_get_or_create = ('name', )
 
 
-    name = factory.Faker('paragraph', nb_sentences=3)
+    name = factory.Faker('sentence', nb_words=2)
 
-    description = factory.Faker('paragraph', nb_sentences=30)
+    description = factory.Faker('sentence', nb_words=25)
 
     feed = factory.SubFactory(FeedFactory)
 

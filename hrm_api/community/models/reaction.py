@@ -10,9 +10,9 @@ from hrm_api.users.models import Profile
 # Utilities
 from hrm_api.utils.models import DefaultModel
 from django_enum_choices.fields import EnumChoiceField
-from enum import Enum
+from hrm_api.utils.testing import CustomEnum
 
-class ReactionTypes(Enum):
+class ReactionTypes(CustomEnum):
     Like = 1
     Celebrate = 2
     Love = 3

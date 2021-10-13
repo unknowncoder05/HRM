@@ -21,4 +21,4 @@ class CommentFactory(DjangoModelFactory):
 
     created_by = factory.SubFactory(ProfileFactory)
 
-    content = factory.Faker('paragraph', nb_sentences=30)
+    content = factory.Faker('sentence', nb_words=30)

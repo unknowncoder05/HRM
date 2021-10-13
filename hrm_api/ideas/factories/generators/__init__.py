@@ -1,0 +1,1 @@
+from .full_idea import idea_generator
