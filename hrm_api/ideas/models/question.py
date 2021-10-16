@@ -21,7 +21,7 @@ class Question(DefaultModel):
 
     description = models.CharField(unique=True, max_length=100)
 
-    feed = models.ForeignKey(Feed, blank=True, null=True, on_delete=models.SET_NULL, related_name='questions')
+    feed = models.ForeignKey(Feed, blank=True, null=True, on_delete=models.SET_NULL, related_name='question')
 
     created_by = models.ForeignKey(Profile, blank=True, null=True, on_delete=models.SET_NULL, related_name='questions')
 

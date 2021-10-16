@@ -14,7 +14,7 @@ from hrm_api.users.factories import ProfileFactory
 class IdeaFactory(DjangoModelFactory):
     class Meta:
         model = Idea
-        django_get_or_create = ('name', )
+        django_get_or_create = ('name', 'description')
 
 
     name = factory.Faker('sentence', nb_words=2)

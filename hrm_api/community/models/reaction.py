@@ -24,9 +24,9 @@ class Reaction(DefaultModel):
 
     A reaction is the way users show what an other user's actions make them feel
     """
-    feed = models.ForeignKey(Feed, on_delete=models.CASCADE, related_name='reactions')
+    feed = models.ForeignKey(Feed, blank=True, null=True, on_delete=models.CASCADE, related_name='reactions')
 
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='reactions')
+    comment = models.ForeignKey(Comment, blank=True, null=True, on_delete=models.CASCADE, related_name='reactions')
 
     created_by = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reactions')
 

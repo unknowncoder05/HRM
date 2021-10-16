@@ -26,7 +26,8 @@ from hrm_api.users.models import User
 # Utils
 from hrm_api.utils.permissions import *
 
-class UserViewSet(mixins.RetrieveModelMixin,
+class UserViewSet(mixins.ListModelMixin,
+                  mixins.RetrieveModelMixin,
                   mixins.UpdateModelMixin,
                   viewsets.GenericViewSet):
     """User view set.
@@ -34,7 +35,7 @@ class UserViewSet(mixins.RetrieveModelMixin,
     Handle sign up, login and account verification.
     """
 
-    queryset = User.objects.filter(deleted_at__isnull=True, is_active=True)
+    queryset = User.objects.filter(deleted_at__isnull=True, is_active=True, profile__is_public=True)
     serializer_class = UserModelSerializer
     #  lookup_field = 'username'
 
@@ -43,7 +44,7 @@ class UserViewSet(mixins.RetrieveModelMixin,
         permissions = []
         if self.action in ['signup']:
             permissions += [AllowAny]
-        if self.action in [*READ_ACTIONS, *UPDATE_ACTIONS, 'profile']:
+        if self.action in [*UPDATE_ACTIONS, 'profile']:
             permissions += [IsAuthenticated, IsAccountOwner]
         if not permissions:
             permissions += [IsAuthenticated]

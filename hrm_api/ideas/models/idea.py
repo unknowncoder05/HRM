@@ -19,11 +19,11 @@ class Idea(DefaultModel):
     """
     questions =  models.ManyToManyField(Question, related_name='child_ideas')
 
-    name = models.CharField(unique=True, max_length=30)
+    name = models.CharField(max_length=30)
 
     description = models.CharField(unique=True, max_length=300)
 
-    feed = models.ForeignKey(Feed, blank=True, null=True, on_delete=models.SET_NULL, related_name='ideas')
+    feed = models.ForeignKey(Feed, blank=True, null=True, on_delete=models.SET_NULL, related_name='idea')
 
     created_by = models.ForeignKey(Profile, blank=True, null=True, on_delete=models.SET_NULL, related_name='ideas')
 

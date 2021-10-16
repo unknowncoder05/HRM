@@ -13,15 +13,19 @@ from hrm_api.community.factories import FeedFactory, CommentFactory
 
 
 # Factory
-class ReactionFactory(DjangoModelFactory):
+class FeedReactionFactory(DjangoModelFactory):
     class Meta:
         model = Reaction
         django_get_or_create = ('created_by', 'feed')
 
+    created_by = factory.SubFactory(ProfileFactory)
 
-    feed = factory.SubFactory(FeedFactory)
+    type = factory.LazyAttribute(lambda o: ReactionTypes.RANDOM)
 
-    comment = factory.SubFactory(CommentFactory)
+class CommentReactionFactory(DjangoModelFactory):
+    class Meta:
+        model = Reaction
+        django_get_or_create = ('created_by', 'comment')
 
     created_by = factory.SubFactory(ProfileFactory)
 

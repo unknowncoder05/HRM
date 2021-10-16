@@ -41,4 +41,11 @@ class Profile(DefaultModel):
     def __str__(self):
         """Return user's str representation."""
         return str(self.user)
+    
+    def count_ideas(self):
+        return self.ideas.count()
+    
+    def count_questions(self):
+        return self.questions.count()
+
 

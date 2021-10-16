@@ -3,6 +3,7 @@ from django.core.management.base import BaseCommand
 # Factories
 from hrm_api.users.factories.generators import user_generator
 from hrm_api.ideas.factories.generators import idea_generator
+from hrm_api.community.factories.generators import feed_generator
 
 # Utilites
 import factory.random
@@ -26,3 +27,5 @@ def populate_database():
         (users[i], randrange(0,10), None)
         for i in range(len(users))
     ])
+    print('creating feed')
+    feed_generator(ideas, users)

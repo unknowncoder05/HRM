@@ -20,5 +20,5 @@ class ProfileModelSerializer(serializers.ModelSerializer):
         model = Profile
         fields = (
             'picture', 'biography', 'is_public',
-            'social_links'
+            'social_links', 'count_ideas', 'count_questions'
         )

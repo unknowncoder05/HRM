@@ -14,7 +14,7 @@ from hrm_api.community.factories import FeedFactory
 class CommentFactory(DjangoModelFactory):
     class Meta:
         model = Comment
-        django_get_or_create = ('created_by', 'content')
+        django_get_or_create = ('created_by', 'content', 'parent')
 
 
     feed = factory.SubFactory(FeedFactory)
